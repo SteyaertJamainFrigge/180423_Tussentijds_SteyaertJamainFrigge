@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "List";
 }
+@using MijnFilms_SteyaertJamainFrigge.Entities;
 
 <body>
     <label for="Title"></label>
@@ -9,6 +10,9 @@
     <h1>FilmLijst</h1>
     <table id="movieTable">
         <tr><th>Titel</th><th>Jaar</th><th>Waardering</th></tr>
-        
+        @foreach(Movie movie in Movies)
+        {
+            <tr><td>@movie.Title</td><td>@movie.Year</td><td>@movie.Stars</td><td><a href="Movies/Details?id=@movie.MovieID"></a></td></tr>
+        }
     </table>
 </body>
